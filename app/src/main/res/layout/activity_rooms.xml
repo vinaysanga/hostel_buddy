@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".RoomsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "Starting Room No. "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryText"/>
+    <EditText
+        android:id="@+id/no_rooms_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the starting number of rooms"
+        android:inputType="number"
+        android:textColor="@color/secondaryText"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "Ending Room No."
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryText"/>
+    <EditText
+        android:id="@+id/no_rooms_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the ending number of rooms"
+        android:inputType="number"
+        android:textColor="@color/secondaryText"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "@string/max_occupants_per_room"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryText"/>
+    <EditText
+        android:id="@+id/max_occ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_the_maximum_number_of_occupants"
+        android:inputType="number"
+        android:textColor="@color/secondaryText"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="18sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+    <Button
+        android:id="@+id/room_add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/add"
+        android:textColor="@android:color/white"
+        android:theme="@style/MyButton"/>
+</LinearLayout>
