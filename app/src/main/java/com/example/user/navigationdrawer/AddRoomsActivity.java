@@ -1,6 +1,7 @@
 package com.example.user.navigationdrawer;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteConstraintException;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class RoomsActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddRoomsActivity extends AppCompatActivity implements View.OnClickListener {
     EditText ed1,ed2,ed3;
     Button btn;
     @Override
@@ -50,20 +51,19 @@ public class RoomsActivity extends AppCompatActivity implements View.OnClickList
                         if (i == rooms_end + 1) {
                             Snackbar snackbar = Snackbar.make(view, "Rooms added successfully !! ", Snackbar.LENGTH_LONG);
                             View snackbarview = snackbar.getView();
-                            snackbarview.setBackgroundColor(0xFF00C853);
+                            snackbarview.setBackgroundColor(getResources().getColor(R.color.materialGreenDark));
                             snackbar.show();
                         } else {
                             Snackbar snackbar = Snackbar.make(view, "Some Rooms couldn't be added !!", Snackbar.LENGTH_LONG);
                             View snackbarview = snackbar.getView();
-                            snackbarview.setBackgroundColor(0xFFD50000);
+                            snackbarview.setBackgroundColor(getResources().getColor(R.color.materialRedDark));
                             snackbar.show();
                         }
                     }
-                    catch (Exception e){
-                        String error = e.getClass().toString();
-                        Snackbar snackbar = Snackbar.make(view, error, Snackbar.LENGTH_LONG);
+                    catch (SQLiteConstraintException e){
+                        Snackbar snackbar = Snackbar.make(view, "Room No(s). already exists ", Snackbar.LENGTH_LONG);
                         View snackbarview = snackbar.getView();
-                        snackbarview.setBackgroundColor(0xFFD50000);
+                        snackbarview.setBackgroundColor(getResources().getColor(R.color.materialRedDark));
                         snackbar.show();
                     }
                 }

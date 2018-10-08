@@ -2,39 +2,30 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_marginBottom="5dp"
+    android:id="@+id/card_view_vacancy"
+    android:layout_margin="5dp"
     android:layout_width="match_parent"
-    android:layout_margin="10dp"
-    android:layout_height="60dp"
-    android:id="@+id/card_view_rooms"
-    android:foreground="?attr/selectableItemBackground">
+    android:layout_height="60dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingStart="15dp"
         android:paddingBottom="10dp"
         android:paddingTop="20dp"
         android:paddingEnd="5dp"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/room_no"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.80"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/vac_room"
             android:gravity="center_vertical"
-            android:text="Room No."/>
+            android:text="Room"/>
         <TextView
             android:layout_width="0dp"
-            android:id="@+id/max_occupants"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="0.80"
-            android:gravity="center_vertical"
-            android:text="Max. Occupants"/>
-        <TextView
-            android:layout_width="0dp"
-            android:id="@+id/vacancy"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.80"
+            android:id="@+id/vac_vacancy"
             android:gravity="center_vertical"
             android:text="Vacancy"/>
     </LinearLayout>

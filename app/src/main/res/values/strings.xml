@@ -23,9 +23,10 @@
     <string name="max_occupants_per_room">Max. Occupants per Room</string>
     <string name="enter_the_number_of_rooms_to_be_created">Enter the number of rooms to be created</string>
     <string name="no_of_rooms">No. of Rooms</string>
+    <string name="save_changes">SAVE CHANGES</string>
 
     <style name="MyButton" parent="Theme.AppCompat.Light">
-    <item name="colorControlHighlight">@color/colorPrimaryDark</item>
-    <item name="colorButtonNormal">@color/colorAccent</item>
-</style>
+        <item name="colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
 </resources>

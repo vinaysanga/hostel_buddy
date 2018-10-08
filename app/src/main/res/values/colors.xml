@@ -13,4 +13,9 @@
     <color name="materialTeal">#009688</color>
     <color name="materialOrange">#FF9800</color>
     <color name="lightGrayLine">#ededed</color>
+    <color name="redAccent">#FFFF8A80</color>
+    <color name="greenAccent">#FFB9F6CA</color>
+    <color name="yellowAccent">#FFFFFF8D</color>
+    <color name="materialRedDark">#FFD50000</color>
+    <color name="materialGreenDark">#FF388E3C</color>
 </resources>

@@ -4,12 +4,14 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -59,9 +61,37 @@ public class ThirdFragment extends Fragment{
         mainActivity.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(),RoomsActivity.class);
+                Intent i = new Intent(getContext(),AddRoomsActivity.class);
                 startActivity(i);
             }
         });
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        MyAdapterRooms tempAdapter = (MyAdapterRooms) adapter;
+        int position = item.getGroupId();
+        Rooms room = new Rooms();
+        switch (item.getItemId()){
+            case 221:
+                try {
+                    room.setRoom_no(arrayList.get(position).getRoom_no());
+                    MainActivity.appDB.myDAO().deleteRoom(room);
+                    tempAdapter.removeItem(position);
+                    Snackbar snackbar = Snackbar.make(myView,"Removed Successfully !!",Snackbar.LENGTH_LONG);
+                    View snackbarview = snackbar.getView();
+                    snackbarview.setBackgroundColor(ResourcesCompat.getColor(getResources(),R.color.materialGreenDark,null));
+                    snackbar.show();
+                }catch (Exception e) {
+                    String error = e.getClass().toString();
+                    Snackbar snackbar = Snackbar.make(myView, error, Snackbar.LENGTH_LONG);
+                    View snackbarview = snackbar.getView();
+                    snackbarview.setBackgroundColor(ResourcesCompat.getColor(getResources(),R.color.materialRedDark,null));
+                    snackbar.show();
+                }
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 }

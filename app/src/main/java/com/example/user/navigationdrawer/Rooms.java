@@ -2,6 +2,7 @@ package com.example.user.navigationdrawer;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.Room;
 
 @Entity(tableName = "ROOMS")
 public class Rooms{
@@ -9,7 +10,7 @@ public class Rooms{
     Integer room_no;
     Integer limit;
     Integer vacancy;
-
+    public Rooms(){}
     public Rooms(Integer room_no, Integer limit) {
         this.room_no = room_no;
         this.limit = limit;

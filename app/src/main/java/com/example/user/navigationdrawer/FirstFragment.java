@@ -3,6 +3,7 @@ package com.example.user.navigationdrawer;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -18,7 +19,7 @@ import android.widget.Toast;
  */
 public class FirstFragment extends Fragment implements View.OnClickListener{
     CardView card1,card2,card3,card4;
-    TextView totalCount;
+    TextView totalCount,vacancy;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,18 +28,16 @@ public class FirstFragment extends Fragment implements View.OnClickListener{
         card2 = (CardView)myView.findViewById(R.id.vacancy_card);
         card3 = (CardView)myView.findViewById(R.id.total_rent_card);
         card4 = (CardView)myView.findViewById(R.id.remaining_rent_card);
+        totalCount = (TextView)myView.findViewById(R.id.count_total);
+        vacancy = (TextView)myView.findViewById(R.id.total_vacancy);
         card1.setOnClickListener(this);
         card2.setOnClickListener(this);
         card3.setOnClickListener(this);
         card4.setOnClickListener(this);
         String total_count = Integer.toString(MainActivity.appDB.myDAO().getOccupantsCount());
-        totalCount = (TextView)myView.findViewById(R.id.count_total);
-        try {
-            totalCount.setText(total_count);
-        }catch (Exception e){
-            String error = e.getClass().toString();
-            Snackbar.make(myView,error,Snackbar.LENGTH_LONG).show();
-        }
+        String total_vacancy = Integer.toString(MainActivity.appDB.myDAO().getVacancyCount());
+        totalCount.setText(total_count);
+        vacancy.setText(total_vacancy);
         return myView;
     }
     @Override
@@ -52,6 +51,8 @@ public class FirstFragment extends Fragment implements View.OnClickListener{
                 MainActivity.showFAB();
                 break;
             case R.id.vacancy_card:
+                Intent intent = new Intent(getContext(),VacancyActivity.class);
+                startActivity(intent);
                 break;
             case R.id.total_rent_card:
                 break;

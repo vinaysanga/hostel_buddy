@@ -87,6 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:id="@+id/total_vacancy"
                     android:text="@string/manipulate_this_via_java"
                     android:padding="5dp"
                     android:textColor="@color/secondaryText"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -104,5 +105,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 2){
+            Occupants occupant = new Occupants(Integer.parseInt(data.getStringExtra("Oid")),data.getStringExtra("Name"),data.getStringExtra("Phone"),data.getStringExtra("Room"));
+            try{
+                appDB.myDAO().updateOccupant(occupant);Snackbar snackbar = Snackbar.make(getCurrentFocus(),"Changes Saved !!", Snackbar.LENGTH_LONG);
+                View snackbarview = snackbar.getView();
+                snackbarview.setBackgroundColor(ResourcesCompat.getColor(getResources(),R.color.materialGreenDark,null));
+                snackbar.show();
+            } catch (Exception e) {
+                String error = e.getClass().toString();
+                Snackbar snackbar = Snackbar.make(getCurrentFocus(), error, Snackbar.LENGTH_LONG);
+                View snackbarview = snackbar.getView();
+                snackbarview.setBackgroundColor(ResourcesCompat.getColor(getResources(),R.color.materialRedDark,null));
+                snackbar.show();
+            }
+        }
+        else if (requestCode == 3){
+
+        }
     }
 }
