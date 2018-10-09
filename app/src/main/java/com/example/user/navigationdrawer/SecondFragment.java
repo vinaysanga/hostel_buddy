@@ -68,7 +68,7 @@ public class SecondFragment extends Fragment {
                     occupant.setOid(arrayList.get(position).getOid());
                     String room_num = arrayList.get(position).getRoom();
                     int vacancy = MainActivity.appDB.myDAO().getVacancy(Integer.parseInt(room_num));
-                    if(vacancy != 0)
+                    if(vacancy >= 0)
                         vacancy++;
                     MainActivity.appDB.myDAO().updateVacancy(arrayList.get(position).getRoom(),Integer.toString(vacancy));
                     MainActivity.appDB.myDAO().deleteOccupant(occupant);

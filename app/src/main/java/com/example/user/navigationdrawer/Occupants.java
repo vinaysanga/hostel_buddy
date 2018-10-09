@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 
 @Entity (indices = {@Index(value = "phone",unique = true)},tableName = "OCCUPANTS",
         foreignKeys = @ForeignKey(entity = Rooms.class,parentColumns = "room_no",childColumns = "room",onDelete = 5,onUpdate = 5))
-class Occupants {
+public class Occupants {
     @PrimaryKey(autoGenerate = true)@NonNull
     Integer oid;
     @NonNull
